@@ -316,3 +316,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+function triggerHaptic() {
+    if (navigator.vibrate) {
+        navigator.vibrate(50); // 50ms vibration
+    }
+}
+
+
+document.querySelectorAll('.btn, .rating-btn').forEach(button => {
+    button.addEventListener('touchstart', (e) => {
+        triggerHaptic();
+    });
+});
+
+
+document.querySelectorAll('.trait-box').forEach(box => {
+    if (box.onclick) {
+        box.addEventListener('touchstart', (e) => {
+            triggerHaptic();
+        });
+    }
+});
+
+
+document.addEventListener('touchmove', (e) => {
+    if (!e.target.closest('.scrollable')) {
+        e.preventDefault();
+    }
+}, { passive: false });
