@@ -1,89 +1,85 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#667eea">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personality Assessment</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div id="intro" class="section active">
-            <div class="content-wrapper">
-                <h1>Discover Your Personality</h1>
-                <p>Take this scientifically-based personality test to understand your traits, strengths, and potential growth areas. Based on the Big Five personality model.</p>
-                <button onclick="startTest()" class="btn">Start Test</button>
-            </div>
+            <h1>Discover Your Personality</h1>
+            <p>Take this scientifically-based personality test to understand your traits, strengths, and potential growth areas. Based on the Big Five personality model.</p>
+            <button onclick="startTest()" class="btn">Start Test</button>
         </div>
 
         <div id="test-section" class="section">
-            <div class="content-wrapper">
-                <div class="progress-bar">
-                    <div id="progress" class="progress"></div>
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+            <h2 id="question-number">Question 1/12</h2>
+            <div id="question-container">
+                
+
+                
+            </div>
+            <div class="rating-container">
+                <div class="ratings">
+                    <button class="rating-btn" data-value="1">1</button>
+                    <button class="rating-btn" data-value="2">2</button>
+                    <button class="rating-btn" data-value="3">3</button>
+                    <button class="rating-btn" data-value="4">4</button>
+                    <button class="rating-btn" data-value="5">5</button>
                 </div>
-                <h2 id="question-number">Question 1/12</h2>
-                <p id="question-text" class="question-text"></p>
-                <div class="rating-container">
-                    <div class="ratings">
-                        <button class="rating-btn" data-value="1">1</button>
-                        <button class="rating-btn" data-value="2">2</button>
-                        <button class="rating-btn" data-value="3">3</button>
-                        <button class="rating-btn" data-value="4">4</button>
-                        <button class="rating-btn" data-value="5">5</button>
-                    </div>
-                    <div class="rating-labels">
-                        <span>Strongly Disagree</span>
-                        <span>Strongly Agree</span>
-                    </div>
+                <div class="rating-labels">
+                    <span>Strongly Disagree</span>
+                    <span>Strongly Agree</span>
                 </div>
             </div>
         </div>
 
         <div id="results" class="section">
-            <div class="content-wrapper">
-                <h2>Your Personality Profile</h2>
-                <div class="traits-container">
-                    <div class="trait-box">
-                        <h3>Openness</h3>
-                        <div class="trait-bar">
-                            <div id="openness-bar" class="trait-progress"></div>
-                        </div>
-                        <div id="openness-description" class="trait-description"></div>
+            <h2>Your Personality Profile</h2>
+            <div class="traits-container">
+                <div class="trait-box">
+                    <h3>Openness</h3>
+                    <div class="trait-bar">
+                        <div id="openness-bar" class="trait-progress"></div>
                     </div>
-                    <div class="trait-box">
-                        <h3>Conscientiousness</h3>
-                        <div class="trait-bar">
-                            <div id="conscientiousness-bar" class="trait-progress"></div>
-                        </div>
-                        <div id="conscientiousness-description" class="trait-description"></div>
-                    </div>
-                    <div class="trait-box">
-                        <h3>Extraversion</h3>
-                        <div class="trait-bar">
-                            <div id="extraversion-bar" class="trait-progress"></div>
-                        </div>
-                        <div id="extraversion-description" class="trait-description"></div>
-                    </div>
-                    <div class="trait-box">
-                        <h3>Agreeableness</h3>
-                        <div class="trait-bar">
-                            <div id="agreeableness-bar" class="trait-progress"></div>
-                        </div>
-                        <div id="agreeableness-description" class="trait-description"></div>
-                    </div>
-                    <div class="trait-box">
-                        <h3>Neuroticism</h3>
-                        <div class="trait-bar">
-                            <div id="neuroticism-bar" class="trait-progress"></div>
-                        </div>
-                        <div id="neuroticism-description" class="trait-description"></div>
-                    </div>
+                    <div id="openness-description"></div>
                 </div>
-                <button onclick="restartTest()" class="btn">Take Test Again</button>
+                <div class="trait-box">
+                    <h3>Conscientiousness</h3>
+                    <div class="trait-bar">
+                        <div id="conscientiousness-bar" class="trait-progress"></div>
+                    </div>
+                    <div id="conscientiousness-description"></div>
+                </div>
+                <div class="trait-box">
+                    <h3>Extraversion</h3>
+                    <div class="trait-bar">
+                        <div id="extraversion-bar" class="trait-progress"></div>
+                    </div>
+                    <div id="extraversion-description"></div>
+                </div>
+                <div class="trait-box">
+                    <h3>Agreeableness</h3>
+                    <div class="trait-bar">
+                        <div id="agreeableness-bar" class="trait-progress"></div>
+                    </div>
+                    <div id="agreeableness-description"></div>
+                </div>
+                <div class="trait-box">
+                    <h3>Neuroticism</h3>
+                    <div class="trait-bar">
+                        <div id="neuroticism-bar" class="trait-progress"></div>
+                    </div>
+                    <div id="neuroticism-description"></div>
+                </div>
             </div>
+            <button onclick="restartTest()" class="btn">Take Test Again</button>
         </div>
     </div>
     <script src="script.js"></script>
