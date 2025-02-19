@@ -19,8 +19,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
     min-height: 100vh;
+    padding: 0;
     margin: 0;
 }
 
@@ -32,36 +32,24 @@ body {
     width: 100%;
     max-width: 800px;
     position: relative;
-    margin: 0 auto; /* Changed from margin: 15px auto */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 100vh;
 }
 
-/* Add this new class for mobile positioning */
-@media (max-width: 600px) {
-    body {
-        align-items: center;
-        padding: 0;
-    }
-    
-    .container {
-        min-height: 100vh;
-        border-radius: 0;
-        justify-content: center;
-        padding: 1rem;
-    }
-    
-    .section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-height: 100vh;
-    }
-    
-    .section.active {
-        display: flex;
-    }
+.section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+    min-height: calc(100vh - 3rem); /* Account for container padding */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section.active {
+    display: flex;
 }
 
 h1 {
@@ -99,6 +87,7 @@ p {
     cursor: pointer;
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .btn:hover {
@@ -155,12 +144,17 @@ p {
     transition: all 0.3s ease;
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     color: #4a5568;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .rating-btn:hover {
     transform: translateY(-2px);
     border-color: #667eea;
     color: #667eea;
+}
+
+.rating-btn:active {
+    transform: scale(0.95);
 }
 
 .rating-btn.selected {
@@ -174,6 +168,7 @@ p {
     gap: 1.25rem;
     margin-top: 1.5rem;
     padding: 0 10px;
+    width: 100%;
 }
 
 .trait-box {
@@ -246,29 +241,21 @@ p {
 }
 
 @media (max-width: 600px) {
-    body {
-        padding: 5px;
-    }
-    
     .container {
+        border-radius: 0;
         padding: 1rem;
-        margin: 10px auto;
-        border-radius: 12px;
+        min-height: 100vh;
     }
     
-    .trait-box {
-        padding: 1rem;
-    }
-    
-    .btn {
-        padding: 0.75rem 1.25rem;
+    .section {
+        min-height: 100vh;
+        padding: 1rem 0;
     }
 }
 
 @media (max-width: 400px) {
     .container {
         padding: 0.875rem;
-        margin: 5px auto;
     }
     
     .trait-box {
