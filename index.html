@@ -4,82 +4,180 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Vision - Home</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-            color: white;
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #1a1a2e);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
         .container {
-            padding: 60px 10px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            margin: 0 auto;
         }
+        
+        .header-container {
+            position: relative;
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+        }
+        
         .header {
-            font-size: 50px;
-            font-weight: 600;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 30px;
-            color: #f8b400;
-            text-shadow: 0px 5px 20px rgba(248, 180, 0, 0.8);
+            letter-spacing: 0.2em;
+            background: linear-gradient(45deg, #f8b400, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
         }
+        
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: #a0a0a0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
         .button {
-            display: inline-block;
-            width: 85%;
+            width: 100%;
             max-width: 400px;
-            padding: 20px;
-            margin: 15px;
-            font-size: 20px;
+            padding: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
             color: white;
             background: linear-gradient(45deg, #ff512f, #dd2476);
-            border-radius: 30px;
-            transition: 0.4s ease-in-out;
-            box-shadow: 0px 10px 30px rgba(255, 81, 47, 0.5);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(221, 36, 118, 0.2);
         }
+        
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+        
         .button:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 10px 40px rgba(255, 81, 47, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(221, 36, 118, 0.3);
         }
+        
+        .button:hover::before {
+            left: 100%;
+        }
+        
         .about {
-            margin-top: 60px;
-            padding: 50px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            width: 90%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5);
+            padding: 3rem 2rem;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .about h2 {
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+            color: #f8b400;
+            margin-bottom: 1.5rem;
             text-align: center;
         }
-        .about h2 {
-            font-size: 35px;
-            color: #f8b400;
-        }
+        
         .about p {
-            font-size: 18px;
+            font-size: 1.1rem;
             line-height: 1.8;
-            margin-top: 15px;
-            color: #f5f5f5;
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .about p:last-child {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .about {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">Open Vision</div>
-        <a href="personality.html" class="button">Personality Test</a>
-        <a href="real_mental_age_test.html" class="button">Real Mental Age Test</a>
-        <a href="iq_test.html" class="button">Find Your IQ </a>
+        <div class="header-container">
+            <h1 class="header">Open Visions</h1>
+            <p class="subtitle">Discover Your True Potential</p>
+        </div>
+        
+        <div class="buttons-container">
+            <a href="personality.html" class="button">Personality Assessment</a>
+            <a href="real_mental_age_test.html" class="button">Mental Age Analysis</a>
+            <a href="iq_test.html" class="button">IQ Evaluation</a>
+        </div>
+        
         <div class="about">
             <h2>About Us</h2>
-            <p>Open Vision is an innovative platform designed to help individuals explore and understand their psychological traits through engaging, AI-powered assessments. Our tests are built on scientific principles to provide deep, meaningful insights.</p>
-            <p>We believe in self-discovery and personal growth, offering a visually captivating and intuitive experience. Join us on a journey to unlock your mind’s true potential.</p>
+            <p>Open Visions represents the pinnacle of psychological assessment technology, combining cutting-edge AI with established scientific principles. Our platform offers sophisticated, nuanced insights into your psychological makeup through carefully crafted, engaging assessments.</p>
+            <p>We've created an environment where self-discovery meets scientific precision, delivering premium psychological insights through an elegant, intuitive interface. Embark on a transformative journey to understand your mind's extraordinary capabilities and unlock your full potential.</p>
         </div>
     </div>
 </body>
