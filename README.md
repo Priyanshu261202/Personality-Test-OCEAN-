@@ -1,9 +1,7 @@
 # Personality-Test-OCEAN-
 
-Overview
 The Personality Assessment Tool is a web-based application designed to help users discover their personality traits based on the Big Five Personality Model. This model evaluates five key traits: Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. The tool provides users with a detailed personality profile, including strengths, career insights, relationship dynamics, and growth areas.
 
-Features
 Interactive Personality Test: A 12-question assessment based on the Big Five Personality Model.
 
 Trait Analysis: Detailed analysis of each personality trait with strengths, career insights, and relationship dynamics.
@@ -16,7 +14,7 @@ Dynamic Results: Personalized results with visual progress bars and descriptions
 
 Restart Option: Users can retake the test to explore changes in their personality profile.
 
-Technologies Used
+Technologies Used - 
 HTML5: For structuring the web application.
 
 CSS3: For styling and responsive design.
