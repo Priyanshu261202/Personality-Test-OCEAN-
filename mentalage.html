@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa, #e4e9f2);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: #2d3748;
             min-height: 100vh;
             line-height: 1.6;
@@ -38,12 +38,15 @@
         .title {
             font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 600;
-            color: #4a5568;
+            background: linear-gradient(45deg, #fafafa, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
         }
 
         .subtitle {
-            color: #718096;
+            color: rgba(255, 255, 255, 0.9);
             font-size: 1rem;
             max-width: 500px;
             margin: 0 auto;
@@ -51,13 +54,14 @@
         }
 
         .test-container {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 1.5rem;
             margin-bottom: 1rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             display: none;
             animation: fadeIn 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .question {
@@ -74,7 +78,7 @@
         }
 
         .option {
-            background: #f7fafc;
+            background: #f8fafc;
             border: 1px solid #e2e8f0;
             padding: 1rem;
             border-radius: 12px;
@@ -89,20 +93,21 @@
         }
 
         .option:hover {
-            background: #edf2f7;
+            background: #f1f5f9;
+            border-color: #6366f1;
         }
 
         .option.selected {
-            background: #e6eff9;
-            border-color: #63b3ed;
-            color: #2b6cb0;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border-color: #6366f1;
+            color: white;
         }
 
         .progress-bar {
             width: 100%;
-            height: 4px;
-            background: #e2e8f0;
-            border-radius: 2px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
             margin-bottom: 1.5rem;
             overflow: hidden;
         }
@@ -110,22 +115,23 @@
         .progress {
             width: 0%;
             height: 100%;
-            background: linear-gradient(45deg, #63b3ed, #4299e1);
+            background: linear-gradient(45deg, #fafafa, #ffffff);
             transition: width 0.3s ease;
         }
 
         .start-container {
             text-align: center;
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 2rem 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             animation: fadeIn 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .instructions {
             margin-bottom: 2rem;
-            color: #718096;
+            color: #4a5568;
             font-size: 0.95rem;
         }
 
@@ -134,10 +140,10 @@
         }
 
         .button {
-            background: linear-gradient(45deg, #4299e1, #63b3ed);
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
             color: white;
             border: none;
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.5rem;
             border-radius: 12px;
             font-size: 1rem;
             cursor: pointer;
@@ -146,26 +152,33 @@
             text-decoration: none;
             text-align: center;
             font-weight: 500;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
         }
 
         .button:active {
-            transform: scale(0.98);
+            transform: translateY(0);
         }
 
         .result-container {
             text-align: center;
             display: none;
             animation: fadeIn 0.5s ease;
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 2rem 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .result-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #2d3748;
+            color: #6366f1;
             font-weight: 600;
         }
 
@@ -210,21 +223,21 @@
     <div class="container">
         <div class="header">
             <h1 class="title">Mental Age Test</h1>
-            <p class="subtitle">Discover your cognitive maturity through this gentle assessment of your thinking patterns and life perspectives.</p>
+            <p class="subtitle">Explore your cognitive maturity through this engaging assessment</p>
         </div>
 
         <div class="start-container" id="startContainer">
             <div class="instructions">
-                <p>This thoughtful assessment includes questions about:</p>
+                <p>This assessment includes 7 questions about:</p>
                 <br>
-                <p>• How you process information</p>
-                <p>• Your approach to daily situations</p>
-                <p>• Your emotional awareness</p>
-                <p>• Your problem-solving style</p>
+                <p>• Your approach to daily challenges</p>
+                <p>• Emotional intelligence</p>
+                <p>• Decision-making style</p>
+                <p>• Learning preferences</p>
                 <br>
-                <p>Take your time and answer naturally. Questions will advance automatically.</p>
+                <p>Answer naturally - questions advance automatically.</p>
             </div>
-            <button class="button" onclick="startTest()">Begin Assessment</button>
+            <button class="button" onclick="startTest()">Start Test</button>
         </div>
 
         <div class="test-container" id="testContainer">
@@ -236,7 +249,7 @@
         </div>
 
         <div class="result-container" id="resultContainer">
-            <h2 class="result-title">Your Mental Age</h2>
+            <h2 class="result-title">Your Mental Age Result</h2>
             <p class="result-text" id="resultText"></p>
             <button class="button" onclick="restartTest()">Take Test Again</button>
         </div>
@@ -245,48 +258,66 @@
     <script>
         const questions = [
             {
-                question: "When facing a challenge, what's your typical response?",
+                question: "How do you typically handle unexpected changes?",
                 options: [
-                    "I prefer to avoid difficult situations",
-                    "I try but get discouraged easily",
-                    "I persist until I find a solution",
-                    "I see challenges as opportunities to grow"
+                    "I get stressed and avoid them",
+                    "I reluctantly adapt when necessary",
+                    "I try to adjust and make the best of it",
+                    "I see them as opportunities for growth"
                 ]
             },
             {
-                question: "How do you typically process your emotions?",
+                question: "When learning something new, you prefer to:",
                 options: [
-                    "I often feel overwhelmed by them",
-                    "I try to ignore them",
-                    "I acknowledge and work through them",
-                    "I understand and learn from them"
+                    "Stick to what I already know",
+                    "Follow step-by-step instructions",
+                    "Experiment and learn from mistakes",
+                    "Explore multiple approaches creatively"
                 ]
             },
             {
-                question: "When making important decisions, you usually:",
+                question: "In group discussions, you usually:",
                 options: [
-                    "Act on impulse",
-                    "Follow others' advice",
-                    "Consider pros and cons",
-                    "Analyze all aspects thoroughly"
+                    "Stay quiet and observe",
+                    "Agree with the majority",
+                    "Share when directly asked",
+                    "Actively contribute new perspectives"
                 ]
             },
             {
-                question: "How do you view mistakes?",
+                question: "How do you process emotional situations?",
                 options: [
-                    "As failures to be avoided",
-                    "As embarrassing moments",
-                    "As learning opportunities",
-                    "As essential for growth"
+                    "React immediately based on feelings",
+                    "Try to ignore or avoid them",
+                    "Take time to understand them",
+                    "Reflect and learn from them"
                 ]
             },
             {
-                question: "What's your approach to different perspectives?",
+                question: "When solving problems, you typically:",
                 options: [
-                    "I prefer staying with my views",
-                    "I listen but rarely change my mind",
-                    "I'm open to new viewpoints",
-                    "I actively seek different perspectives"
+                    "Wait for others to solve them",
+                    "Use familiar solutions",
+                    "Try different approaches",
+                    "Analyze and create innovative solutions"
+                ]
+            },
+            {
+                question: "How do you handle responsibility?",
+                options: [
+                    "Prefer to avoid it",
+                    "Accept it when necessary",
+                    "Handle it competently",
+                    "Actively seek and manage it well"
+                ]
+            },
+            {
+                question: "When facing criticism, you usually:",
+                options: [
+                    "Take it personally",
+                    "Feel uncomfortable but listen",
+                    "Consider it objectively",
+                    "Welcome it as feedback for growth"
                 ]
             }
         ];
@@ -358,11 +389,10 @@
             
             const resultText = document.getElementById('resultText');
             resultText.innerHTML = `
-                Your mental age reflects a maturity level of approximately ${mentalAge} years.<br><br>
-                This assessment considers your approach to challenges, emotional awareness, 
-                decision-making style, and openness to learning. Remember that mental age 
-                is simply a reflection of your current perspective and can evolve through 
-                new experiences and personal growth.
+                Your mental age appears to be ${mentalAge} years.<br><br>
+                This result reflects your current approach to situations, emotional awareness, 
+                and decision-making style. Remember that mental age is just one way to look at 
+                maturity and can evolve through experiences and personal growth.
             `;
         }
 
