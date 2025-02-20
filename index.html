@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +13,13 @@
             <p>Take this scientifically-based personality test to understand your traits, strengths, and potential growth areas. Based on the Big Five personality model.</p>
             <button onclick="startTest()" class="btn">Start Test</button>
         </div>
-
+        
         <div id="test-section" class="section">
             <div class="progress-bar">
                 <div id="progress" class="progress"></div>
             </div>
             <h2 id="question-number">Question 1/12</h2>
-            <div id="question-container">
-                <!-- Questions will be inserted here -->
-            </div>
+            <div id="question-container"></div>
             <div class="rating-container">
                 <div class="ratings">
                     <button class="rating-btn" data-value="1">1</button>
@@ -46,35 +43,35 @@
                     <div class="trait-bar">
                         <div id="openness-bar" class="trait-progress"></div>
                     </div>
-                    <div id="openness-description"></div>
+                    <div id="openness-description" class="trait-description"></div>
                 </div>
                 <div class="trait-box">
                     <h3>Conscientiousness</h3>
                     <div class="trait-bar">
                         <div id="conscientiousness-bar" class="trait-progress"></div>
                     </div>
-                    <div id="conscientiousness-description"></div>
+                    <div id="conscientiousness-description" class="trait-description"></div>
                 </div>
                 <div class="trait-box">
                     <h3>Extraversion</h3>
                     <div class="trait-bar">
                         <div id="extraversion-bar" class="trait-progress"></div>
                     </div>
-                    <div id="extraversion-description"></div>
+                    <div id="extraversion-description" class="trait-description"></div>
                 </div>
                 <div class="trait-box">
                     <h3>Agreeableness</h3>
                     <div class="trait-bar">
                         <div id="agreeableness-bar" class="trait-progress"></div>
                     </div>
-                    <div id="agreeableness-description"></div>
+                    <div id="agreeableness-description" class="trait-description"></div>
                 </div>
                 <div class="trait-box">
                     <h3>Neuroticism</h3>
                     <div class="trait-bar">
                         <div id="neuroticism-bar" class="trait-progress"></div>
                     </div>
-                    <div id="neuroticism-description"></div>
+                    <div id="neuroticism-description" class="trait-description"></div>
                 </div>
             </div>
             <button onclick="restartTest()" class="btn">Take Test Again</button>

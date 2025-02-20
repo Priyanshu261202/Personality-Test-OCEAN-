@@ -80,106 +80,106 @@ const traitDescriptions = {
     },
     conscientiousness: {
         high: {
-            general: "You are highly organized and goal-driven, with a strong sense of responsibility and attention to detail.",
+            general: "You are organized, responsible, and goal-oriented. You have a strong sense of duty and prefer to plan things in advance.",
             strengths: [
-                "Excellent at meeting deadlines",
-                "Good at long-term planning",
-                "Reliable and trustworthy",
-                "High quality of work"
+                "Excellent at planning and organizing",
+                "Reliable and dependable",
+                "Strong work ethic",
+                "Detail-oriented and thorough"
             ],
-            career: "You're well-suited for management roles, project management, or any position requiring organization and reliability.",
-            relationships: "People trust you to follow through on commitments and maintain order in shared spaces.",
-            challenges: "You might sometimes be too hard on yourself or struggle with perfectionism."
+            career: "You might excel in management, administration, or any role requiring attention to detail and systematic approaches.",
+            relationships: "You bring stability and reliability to relationships, always following through on commitments.",
+            challenges: "You might sometimes be too rigid or perfectionistic, having trouble with spontaneity."
         },
         low: {
-            general: "You are flexible and spontaneous, preferring to go with the flow rather than stick to rigid plans.",
+            general: "You are flexible and spontaneous, preferring to go with the flow rather than sticking to strict plans.",
             strengths: [
-                "Adaptable to change",
-                "Good at thinking on your feet",
+                "Adaptable and easy-going",
+                "Good at handling unexpected changes",
                 "Creative problem-solver",
-                "Relaxed approach to life"
+                "Comfortable with uncertainty"
             ],
-            career: "You might excel in roles requiring creativity, flexibility, and quick adaptation to change.",
-            relationships: "You bring spontaneity and fun to relationships, helping others relax and enjoy the moment.",
-            challenges: "You might sometimes struggle with deadlines or maintaining long-term commitments."
+            career: "You might excel in creative fields, emergency response, or roles requiring adaptability and quick thinking.",
+            relationships: "You bring spontaneity and flexibility to relationships, keeping things fresh and exciting.",
+            challenges: "You might sometimes struggle with organization and meeting deadlines."
         }
     },
     extraversion: {
         high: {
-            general: "You gain energy from social interactions and enjoy being around others. You're naturally expressive and outgoing.",
+            general: "You are outgoing and energized by social interaction. You enjoy being around people and seek out social situations.",
             strengths: [
-                "Great at networking",
-                "Natural leader in groups",
-                "Engaging communicator",
-                "Quick to make friends"
+                "Excellent communication skills",
+                "Natural networker",
+                "Enthusiastic team player",
+                "Good at motivating others"
             ],
-            career: "You might excel in sales, teaching, management, or any role involving lots of social interaction.",
-            relationships: "You're often the life of the party and good at bringing people together.",
-            challenges: "You might sometimes overwhelm quieter people or struggle with alone time."
+            career: "You might excel in sales, public relations, teaching, or any role involving frequent interaction with others.",
+            relationships: "You bring energy and enthusiasm to relationships, easily making connections with others.",
+            challenges: "You might sometimes find it difficult to work alone or need more quiet time."
         },
         low: {
-            general: "You recharge through solitude and prefer meaningful one-on-one interactions over large group activities.",
+            general: "You are introspective and comfortable with solitude. You prefer deeper one-on-one connections to large group settings.",
             strengths: [
-                "Deep thinker",
-                "Good listener",
+                "Good at deep thinking",
+                "Strong listening skills",
                 "Independent worker",
-                "Meaningful relationships"
+                "Thoughtful decision-maker"
             ],
-            career: "You might excel in roles requiring focus and independence, like research, writing, or technical work.",
-            relationships: "You form deep, meaningful connections and are a loyal friend to a select few.",
-            challenges: "You might sometimes feel drained in highly social situations or struggle with networking."
+            career: "You might excel in research, writing, technical fields, or roles requiring focused individual work.",
+            relationships: "You bring depth and thoughtfulness to relationships, forming meaningful connections.",
+            challenges: "You might sometimes need to push yourself to be more socially active."
         }
     },
     agreeableness: {
         high: {
-            general: "You are naturally empathetic and cooperative, always considering others' feelings and needs.",
+            general: "You are compassionate and cooperative, always considering others' feelings. You naturally tend to put others first.",
             strengths: [
-                "Great team player",
-                "Skilled at conflict resolution",
-                "Trusted confidant",
-                "Supportive friend"
+                "Excellent team player",
+                "Empathetic and understanding",
+                "Good at conflict resolution",
+                "Trusted by others"
             ],
-            career: "You might excel in counseling, teaching, healthcare, or any role focused on helping others.",
-            relationships: "You're often the peacemaker and create harmony in relationships.",
-            challenges: "You might sometimes put others' needs before your own or avoid necessary confrontation."
+            career: "You might excel in counseling, healthcare, teaching, or any role focused on helping others.",
+            relationships: "You bring harmony and understanding to relationships, always willing to compromise.",
+            challenges: "You might sometimes neglect your own needs while caring for others."
         },
         low: {
-            general: "You are direct and objective, valuing honesty and logic over emotional harmony.",
+            general: "You are independent and straightforward, prioritizing logic over emotions in decision-making.",
             strengths: [
                 "Good at making tough decisions",
                 "Direct communicator",
                 "Independent thinker",
-                "Strong boundaries"
+                "Strong negotiator"
             ],
-            career: "You might excel in analytical roles, leadership positions, or any job requiring tough decision-making.",
-            relationships: "You bring honesty and clarity to relationships, and people know where they stand with you.",
-            challenges: "You might sometimes come across as too direct or struggle with emotional situations."
+            career: "You might excel in leadership, criticism, analysis, or roles requiring tough decision-making.",
+            relationships: "You bring honesty and directness to relationships, maintaining clear boundaries.",
+            challenges: "You might sometimes come across as too direct or unsympathetic."
         }
     },
     neuroticism: {
         high: {
-            general: "You are highly sensitive and emotionally aware, experiencing life's ups and downs deeply.",
+            general: "You are sensitive and emotionally responsive, experiencing feelings intensely. You're highly attuned to potential challenges.",
             strengths: [
-                "Emotionally perceptive",
-                "Detail-oriented",
-                "Careful decision-maker",
-                "Empathetic to others"
+                "Detailed risk assessor",
+                "Empathetic to others' struggles",
+                "Good at anticipating problems",
+                "Passionate and driven"
             ],
-            career: "You might excel in creative fields, counseling, or roles requiring attention to detail and risk awareness.",
-            relationships: "You bring emotional depth and understanding to relationships.",
-            challenges: "You might sometimes worry too much or feel overwhelmed by stress."
+            career: "You might excel in quality control, risk assessment, or creative fields where emotional depth is valuable.",
+            relationships: "You bring depth and emotional awareness to relationships, forming intense connections.",
+            challenges: "You might sometimes struggle with stress and anxiety management."
         },
         low: {
-            general: "You are emotionally stable and resilient, maintaining composure under pressure.",
+            general: "You are emotionally stable and resilient, maintaining composure under pressure. You tend to stay calm in stressful situations.",
             strengths: [
-                "Good crisis manager",
-                "Steady under pressure",
+                "Excellent stress management",
+                "Stable under pressure",
                 "Reliable decision-maker",
                 "Positive outlook"
             ],
-            career: "You might excel in high-pressure roles, leadership positions, or crisis management.",
+            career: "You might excel in crisis management, leadership, or high-pressure environments.",
             relationships: "You bring stability and calm to relationships, helping others stay grounded.",
-            challenges: "You might sometimes miss emotional cues or appear less sympathetic to others' worries."
+            challenges: "You might sometimes miss subtle emotional cues from others."
         }
     }
 };
@@ -202,10 +202,18 @@ function displayQuestion() {
     questionNumber.textContent = `Question ${currentQuestion + 1}/${questions.length}`;
     progressBar.style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
 
-    
+    // Reset button selections
     document.querySelectorAll('.rating-btn').forEach(btn => {
         btn.classList.remove('selected');
     });
+
+    // If this question was already answered, select the previous answer
+    if (answers[currentQuestion]) {
+        const value = questions[currentQuestion].reverse 
+            ? 6 - answers[currentQuestion].value 
+            : answers[currentQuestion].value;
+        document.querySelector(`.rating-btn[data-value="${value}"]`)?.classList.add('selected');
+    }
 }
 
 function calculateTraitScore(trait) {
@@ -214,16 +222,18 @@ function calculateTraitScore(trait) {
 
     let sum = 0;
     traitAnswers.forEach(answer => {
-        sum += Number(answer.value);
+        sum += answer.value;
     });
 
-    const average = sum / traitAnswers.length;
-    return (average / 5) * 100;
+    return (sum / (traitAnswers.length * 5)) * 100;
 }
 
 function showResults() {
     document.getElementById('test-section').classList.remove('active');
     document.getElementById('results').classList.add('active');
+
+    // Scroll to top when showing results
+    window.scrollTo(0, 0);
 
     const traits = ['openness', 'conscientiousness', 'extraversion', 'agreeableness', 'neuroticism'];
 
@@ -236,7 +246,7 @@ function showResults() {
             progressBar.style.width = `${score}%`;
         }
 
-        if (description) {
+        if (description && traitDescriptions[trait]) {
             const traitLevel = score > 60 ? 'high' : 'low';
             const traitInfo = traitDescriptions[trait][traitLevel];
             
@@ -266,7 +276,7 @@ function restartTest() {
     document.getElementById('results').classList.remove('active');
     document.getElementById('intro').classList.add('active');
 
-    
+    // Reset progress bars
     const traits = ['openness', 'conscientiousness', 'extraversion', 'agreeableness', 'neuroticism'];
     traits.forEach(trait => {
         const progressBar = document.getElementById(`${trait}-bar`);
@@ -278,33 +288,35 @@ function restartTest() {
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize sections
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => section.classList.remove('active'));
     document.getElementById('intro').classList.add('active');
-
     
+    // Add click handlers for rating buttons
     document.querySelectorAll('.rating-btn').forEach(button => {
         button.addEventListener('click', function() {
             const value = parseInt(this.dataset.value);
             
-            
+            // Update button states
             document.querySelectorAll('.rating-btn').forEach(btn => {
                 btn.classList.remove('selected');
             });
             this.classList.add('selected');
             
-            
+            // Handle reverse scoring if needed
             let actualValue = value;
             if (questions[currentQuestion].reverse) {
                 actualValue = 6 - value; 
             }
             
+            // Save answer
             answers[currentQuestion] = {
                 trait: questions[currentQuestion].trait,
                 value: actualValue
             };
             
-            
+            // Move to next question or show results after a short delay
             setTimeout(() => {
                 if (currentQuestion < questions.length - 1) {
                     currentQuestion++;
