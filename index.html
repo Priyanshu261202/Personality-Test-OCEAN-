@@ -3,80 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personality Assessment</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Open Vision - Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 60px 10px;
+        }
+        .header {
+            font-size: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+            color: #f8b400;
+            text-shadow: 0px 5px 20px rgba(248, 180, 0, 0.8);
+        }
+        .button {
+            display: inline-block;
+            width: 85%;
+            max-width: 400px;
+            padding: 20px;
+            margin: 15px;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(45deg, #ff512f, #dd2476);
+            border-radius: 30px;
+            transition: 0.4s ease-in-out;
+            box-shadow: 0px 10px 30px rgba(255, 81, 47, 0.5);
+        }
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 40px rgba(255, 81, 47, 0.8);
+        }
+        .about {
+            margin-top: 60px;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .about h2 {
+            font-size: 35px;
+            color: #f8b400;
+        }
+        .about p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-top: 15px;
+            color: #f5f5f5;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div id="intro" class="section active">
-            <h1>Discover Your Personality</h1>
-            <p>Take this scientifically-based personality test to understand your traits, strengths, and potential growth areas. Based on the Big Five personality model.</p>
-            <button onclick="startTest()" class="btn">Start Test</button>
-        </div>
-        
-        <div id="test-section" class="section">
-            <div class="progress-bar">
-                <div id="progress" class="progress"></div>
-            </div>
-            <h2 id="question-number">Question 1/12</h2>
-            <div id="question-container"></div>
-            <div class="rating-container">
-                <div class="ratings">
-                    <button class="rating-btn" data-value="1">1</button>
-                    <button class="rating-btn" data-value="2">2</button>
-                    <button class="rating-btn" data-value="3">3</button>
-                    <button class="rating-btn" data-value="4">4</button>
-                    <button class="rating-btn" data-value="5">5</button>
-                </div>
-                <div class="rating-labels">
-                    <span>Strongly Disagree</span>
-                    <span>Strongly Agree</span>
-                </div>
-            </div>
-        </div>
-
-        <div id="results" class="section">
-            <h2>Your Personality Profile</h2>
-            <div class="traits-container">
-                <div class="trait-box">
-                    <h3>Openness</h3>
-                    <div class="trait-bar">
-                        <div id="openness-bar" class="trait-progress"></div>
-                    </div>
-                    <div id="openness-description" class="trait-description"></div>
-                </div>
-                <div class="trait-box">
-                    <h3>Conscientiousness</h3>
-                    <div class="trait-bar">
-                        <div id="conscientiousness-bar" class="trait-progress"></div>
-                    </div>
-                    <div id="conscientiousness-description" class="trait-description"></div>
-                </div>
-                <div class="trait-box">
-                    <h3>Extraversion</h3>
-                    <div class="trait-bar">
-                        <div id="extraversion-bar" class="trait-progress"></div>
-                    </div>
-                    <div id="extraversion-description" class="trait-description"></div>
-                </div>
-                <div class="trait-box">
-                    <h3>Agreeableness</h3>
-                    <div class="trait-bar">
-                        <div id="agreeableness-bar" class="trait-progress"></div>
-                    </div>
-                    <div id="agreeableness-description" class="trait-description"></div>
-                </div>
-                <div class="trait-box">
-                    <h3>Neuroticism</h3>
-                    <div class="trait-bar">
-                        <div id="neuroticism-bar" class="trait-progress"></div>
-                    </div>
-                    <div id="neuroticism-description" class="trait-description"></div>
-                </div>
-            </div>
-            <button onclick="restartTest()" class="btn">Take Test Again</button>
+        <div class="header">Open Vision</div>
+        <a href="personality.html" class="button">Personality Test</a>
+        <a href="real_mental_age_test.html" class="button">Real Mental Age Test</a>
+        <a href="iq_test.html" class="button">Find Your IQ </a>
+        <div class="about">
+            <h2>About Us</h2>
+            <p>Open Vision is an innovative platform designed to help individuals explore and understand their psychological traits through engaging, AI-powered assessments. Our tests are built on scientific principles to provide deep, meaningful insights.</p>
+            <p>We believe in self-discovery and personal growth, offering a visually captivating and intuitive experience. Join us on a journey to unlock your mind’s true potential.</p>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
