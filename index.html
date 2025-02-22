@@ -11,6 +11,25 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         
+        :root {
+            --background-dark: linear-gradient(135deg, #1a1a2e, #16213e, #1a1a2e);
+            --background-light: linear-gradient(135deg, #f5f5f5, #e0e0e0, #f5f5f5);
+            --text-dark: white;
+            --text-light: #1a1a2e;
+            --accent-gradient: linear-gradient(45deg, #f8b400, #ffd700);
+            --button-gradient: linear-gradient(45deg, #ff512f, #dd2476);
+        }
+
+        [data-theme="light"] {
+            --background: var(--background-light);
+            --text: var(--text-light);
+        }
+
+        [data-theme="dark"] {
+            --background: var(--background-dark);
+            --text: var(--text-dark);
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -19,12 +38,31 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #1a1a2e);
-            color: white;
+            background: var(--background);
+            color: var(--text);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
         }
         
         .container {
@@ -33,6 +71,16 @@
             padding: 2rem;
             margin: 0 auto;
             position: relative;
+        }
+
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
         
         .header-container {
@@ -47,7 +95,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            background: linear-gradient(45deg, #f8b400, #ffd700);
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -81,7 +129,7 @@
             font-weight: 600;
             text-decoration: none;
             color: white;
-            background: linear-gradient(45deg, #ff512f, #dd2476);
+            background: var(--button-gradient);
             border-radius: 15px;
             transition: all 0.3s ease;
             position: relative;
@@ -107,7 +155,7 @@
                 rgba(255, 255, 255, 0.2),
                 transparent
             );
-            transition: 0.8s;
+            transition: 0.5s;
         }
         
         .button:hover {
@@ -141,7 +189,7 @@
         .about p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #e0e0e0;
+            color: var(--text);
             margin-bottom: 1.5rem;
             text-align: left;
         }
@@ -153,7 +201,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.15;
+            opacity: 0.3;
         }
         
         @media (max-width: 768px) {
@@ -168,7 +216,10 @@
     </style>
 </head>
 <body>
+    <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
     <div id="three-container"></div>
+    <div class="parallax-bg"></div>
+    
     <div class="container">
         <div class="header-container">
             <h1 class="header">Open Visions</h1>
@@ -183,51 +234,51 @@
         
         <div class="about">
             <h2>About Us</h2>
-            <p>Founded Priyanshu Shakya in 1847 AD, Open Visions represents the pinnacle of psychological assessment technology, combining cutting-edge AI with established scientific principles. Our platform offers sophisticated, nuanced insights into your psychological makeup through carefully crafted, engaging assessments.</p>
+            <p>Open Visions represents the pinnacle of psychological assessment technology, combining cutting-edge AI with established scientific principles. Our platform offers sophisticated, nuanced insights into your psychological makeup through carefully crafted, engaging assessments.</p>
             <p>We've created an environment where self-discovery meets scientific precision, delivering premium psychological insights through an elegant, intuitive interface. Embark on a transformative journey to understand your mind's extraordinary capabilities and unlock your full potential.</p>
         </div>
     </div>
 
     <script>
-       
+        
         gsap.registerPlugin(ScrollTrigger);
 
         
         gsap.from(".header", {
-            duration: 2,
+            duration: 1.5,
             opacity: 0,
             y: -50,
             rotationX: -45,
-            ease: "power2.out"
+            ease: "power3.out"
         });
 
-       
+        
         gsap.to(".subtitle", {
-            duration: 1.5,
+            duration: 1,
             opacity: 1,
             y: 0,
-            delay: 0.7,
+            delay: 0.5,
             ease: "power2.out"
         });
 
         
         gsap.to(".button", {
-            duration: 1.2,
+            duration: 0.8,
             opacity: 1,
             x: 0,
-            stagger: 0.3,
+            stagger: 0.2,
             delay: 1,
             ease: "power2.out"
         });
 
-       
+        
         gsap.to(".about", {
             scrollTrigger: {
                 trigger: ".about",
                 start: "top 80%",
                 toggleActions: "play none none reverse"
             },
-            duration: 1.5,
+            duration: 1,
             opacity: 1,
             y: 0,
             ease: "power2.out"
@@ -243,9 +294,7 @@
         const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
         const material = new THREE.MeshBasicMaterial({ 
             color: 0xf8b400,
-            wireframe: true,
-            transparent: true,
-            opacity: 0.5
+            wireframe: true
         });
         const torusKnot = new THREE.Mesh(geometry, material);
         scene.add(torusKnot);
@@ -254,14 +303,13 @@
 
         function animate() {
             requestAnimationFrame(animate);
-          
-            torusKnot.rotation.x += 0.002;
-            torusKnot.rotation.y += 0.002;
+            torusKnot.rotation.x += 0.01;
+            torusKnot.rotation.y += 0.01;
             renderer.render(scene, camera);
         }
         animate();
 
-      
+        
         window.addEventListener('resize', () => {
             const width = window.innerWidth;
             const height = window.innerHeight;
@@ -272,15 +320,35 @@
             renderer.setSize(width, height);
         });
 
+       
+const themeToggle = document.querySelector('.theme-toggle');
+const body = document.body;
+
+
+body.setAttribute('data-theme', 'dark');
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    body.setAttribute('data-theme', newTheme);
+    
+    
+    gsap.to('body', {
+        duration: 0.5,
+        backgroundColor: newTheme === 'light' ? '#f5f5f5' : '#1a1a2e',
+        color: newTheme === 'light' ? '#1a1a2e' : 'white'
+    });
+});
+
         
         document.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX / window.innerWidth - 0.5;
             const mouseY = e.clientY / window.innerHeight - 0.5;
             
             gsap.to('.header', {
-                duration: 1,
-                rotationY: mouseX * 5,
-                rotationX: -mouseY * 5,
+                duration: 0.5,
+                rotationY: mouseX * 10,
+                rotationX: -mouseY * 10,
                 ease: 'power1.out'
             });
         });
