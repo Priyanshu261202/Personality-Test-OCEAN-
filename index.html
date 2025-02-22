@@ -189,10 +189,10 @@
     </div>
 
     <script>
-        // Initialize GSAP
+       
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animate header
+        
         gsap.from(".header", {
             duration: 2,
             opacity: 0,
@@ -201,26 +201,26 @@
             ease: "power2.out"
         });
 
-        // Animate subtitle
+       
         gsap.to(".subtitle", {
             duration: 1.5,
             opacity: 1,
             y: 0,
-            delay: 0.8,
+            delay: 0.7,
             ease: "power2.out"
         });
 
-        // Animate buttons
+        
         gsap.to(".button", {
             duration: 1.2,
             opacity: 1,
             x: 0,
             stagger: 0.3,
-            delay: 1.5,
+            delay: 1,
             ease: "power2.out"
         });
 
-        // Animate about section
+       
         gsap.to(".about", {
             scrollTrigger: {
                 trigger: ".about",
@@ -233,7 +233,7 @@
             ease: "power2.out"
         });
 
-        // Three.js Animation
+        
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -254,14 +254,14 @@
 
         function animate() {
             requestAnimationFrame(animate);
-            // Reduced rotation speed by 5x
+          
             torusKnot.rotation.x += 0.002;
             torusKnot.rotation.y += 0.002;
             renderer.render(scene, camera);
         }
         animate();
 
-        // Handle window resize
+      
         window.addEventListener('resize', () => {
             const width = window.innerWidth;
             const height = window.innerHeight;
@@ -272,7 +272,7 @@
             renderer.setSize(width, height);
         });
 
-        // Subtle parallax effect
+        
         document.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX / window.innerWidth - 0.5;
             const mouseY = e.clientY / window.innerHeight - 0.5;
