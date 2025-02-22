@@ -1,1 +1,487 @@
-<h1>site under maintenance..</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ Test</title>
+    <style>
+        :root {
+            --primary: #4A90E2;
+            --secondary: #50E3C2;
+            --accent: #F5A623;
+            --background: #00264c;
+            --text: #ECF0F1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, var(--background), #1a252f);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--secondary);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-screen {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .instructions h2 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .instructions ul {
+            list-style-position: inside;
+            margin: 15px 0;
+        }
+
+        .instructions li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .instructions li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .start-btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--text);
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .start-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .timer {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .question {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .question.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .option-btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--text);
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .option-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .pattern-cell {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: var(--accent);
+        }
+
+        .result {
+            display: none;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        #test-content {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .timer {
+                font-size: 1.2em;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .pattern-cell {
+                font-size: 1.5em;
+            }
+
+            .start-btn {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+
+            .instructions {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="welcome-screen" class="welcome-screen fade-in">
+            <h1>Advanced IQ Test</h1>
+            <div class="instructions">
+                <h2>Test Instructions</h2>
+                <ul>
+                    <li>This test consists of 7 questions designed to measure different aspects of intelligence</li>
+                    <li>You have 5 minutes to complete all questions</li>
+                    <li>Each question has only one correct answer</li>
+                    <li>Questions include pattern recognition, logical reasoning, and mathematical problems</li>
+                    <li>You cannot go back to previous questions once answered</li>
+                    <li>Your final score will be calculated based on correct answers and completion time</li>
+                </ul>
+
+                <h2>Tips for Success</h2>
+                <ul>
+                    <li>Read each question carefully before answering</li>
+                    <li>Don't spend too much time on any single question</li>
+                    <li>If unsure, make your best educated guess and move on</li>
+                    <li>Stay calm and focused throughout the test</li>
+                </ul>
+
+                <h2>Technical Requirements</h2>
+                <ul>
+                    <li>Ensure your device has a stable internet connection</li>
+                    <li>Do not refresh the page during the test</li>
+                    <li>Enable JavaScript if it's disabled</li>
+                </ul>
+            </div>
+            <button class="start-btn" onclick="startTest()">Start Test</button>
+        </div>
+
+        <div id="test-content">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="timer" id="timer">Time remaining: 5:00</div>
+            <div id="questions">
+
+                <div class="question active" id="q1">
+                    <h3>Question 1: Complete the Pattern</h3>
+                    <div class="pattern-grid">
+                        <div class="pattern-cell">2</div>
+                        <div class="pattern-cell">4</div>
+                        <div class="pattern-cell">6</div>
+                        <div class="pattern-cell">3</div>
+                        <div class="pattern-cell">6</div>
+                        <div class="pattern-cell">9</div>
+                        <div class="pattern-cell">4</div>
+                        <div class="pattern-cell">8</div>
+                        <div class="pattern-cell">?</div>
+                    </div>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(1, 12)">12</button>
+                        <button class="option-btn" onclick="checkAnswer(1, 10)">10</button>
+                        <button class="option-btn" onclick="checkAnswer(1, 14)">14</button>
+                        <button class="option-btn" onclick="checkAnswer(1, 16)">16</button>
+                    </div>
+                </div>
+
+                <div class="question" id="q2">
+                    <h3>Question 2: Which shape continues the sequence?</h3>
+                    <svg width="100%" height="120" viewBox="0 0 400 120">
+                        <circle cx="50" cy="60" r="20" fill="var(--accent)"/>
+                        <rect x="120" y="40" width="40" height="40" fill="var(--accent)"/>
+                        <polygon points="220,40 240,80 200,80" fill="var(--accent)"/>
+                        <text x="300" y="70" font-size="40" fill="var(--accent)">?</text>
+                    </svg>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(2, 'circle')">Circle</button>
+                        <button class="option-btn" onclick="checkAnswer(2, 'square')">Square</button>
+                        <button class="option-btn" onclick="checkAnswer(2, 'triangle')">Triangle</button>
+                        <button class="option-btn" onclick="checkAnswer(2, 'hexagon')">Hexagon</button>
+                    </div>
+                </div>
+
+                <div class="question" id="q3">
+                    <h3>Question 3: If x = 2y and y = 3z, then x = ?z</h3>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(3, 6)">6</button>
+                        <button class="option-btn" onclick="checkAnswer(3, 5)">5</button>
+                        <button class="option-btn" onclick="checkAnswer(3, 4)">4</button>
+                        <button class="option-btn" onclick="checkAnswer(3, 3)">3</button>
+                    </div>
+                </div>
+
+               
+                <div class="question" id="q4">
+                    <h3>Question 4: Book is to Reading as Fork is to:</h3>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(4, 'eating')">Eating</button>
+                        <button class="option-btn" onclick="checkAnswer(4, 'cooking')">Cooking</button>
+                        <button class="option-btn" onclick="checkAnswer(4, 'kitchen')">Kitchen</button>
+                        <button class="option-btn" onclick="checkAnswer(4, 'food')">Food</button>
+                    </div>
+                </div>
+
+                
+                <div class="question" id="q5">
+                    <h3>Question 5: Which number is missing?</h3>
+                    <div class="pattern-grid">
+                        <div class="pattern-cell">1</div>
+                        <div class="pattern-cell">3</div>
+                        <div class="pattern-cell">6</div>
+                        <div class="pattern-cell">2</div>
+                        <div class="pattern-cell">5</div>
+                        <div class="pattern-cell">9</div>
+                        <div class="pattern-cell">4</div>
+                        <div class="pattern-cell">?</div>
+                        <div class="pattern-cell">14</div>
+                    </div>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(5, 8)">8</button>
+                        <button class="option-btn" onclick="checkAnswer(5, 7)">7</button>
+                        <button class="option-btn" onclick="checkAnswer(5, 9)">9</button>
+                        <button class="option-btn" onclick="checkAnswer(5, 10)">10</button>
+                    </div>
+                </div>
+
+                
+                <div class="question" id="q6">
+                    <h3>Question 6: Complete the sequence: 2, 6, 12, 20, ?</h3>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(6, 30)">30</button>
+                        <button class="option-btn" onclick="checkAnswer(6, 28)">28</button>
+                        <button class="option-btn" onclick="checkAnswer(6, 32)">32</button>
+                        <button class="option-btn" onclick="checkAnswer(6, 26)">26</button>
+                    </div>
+                </div>
+
+                
+                <div class="question" id="q7">
+                    <h3>Question 7: If all squares are circles, and no circles are triangles, then:</h3>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(7, 'no-squares-triangles')">No squares are triangles</button>
+                        <button class="option-btn" onclick="checkAnswer(7, 'some-squares-triangles')">Some squares are triangles</button>
+                        <button class="option-btn" onclick="checkAnswer(7, 'all-squares-triangles')">All squares are triangles</button>
+                        <button class="option-btn" onclick="checkAnswer(7, 'cant-tell')">Cannot determine</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result" id="result">
+                <h2>Test Complete!</h2>
+                <p>Your Score: <span id="score">0</span> out of 7</p>
+                <p>Estimated IQ Range: <span id="iqRange">--</span></p>
+                <p>Time Taken: <span id="timeTaken">--</span></p>
+                <button class="option-btn" onclick="location.reload()">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        let score = 0;
+        let timeLeft = 300; // 5 minutes
+        let startTime;
+        let timerInterval;
+
+        function startTest() {
+            document.getElementById('welcome-screen').style.display = 'none';
+            document.getElementById('test-content').style.display = 'block';
+            startTime = Date.now();
+            startTimer();
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion - 1) / 7) * 100;
+            document.getElementById('progress').style.width = `${progress}%`;
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                document.getElementById('timer').textContent = 
+                    `Time remaining: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showResult();
+                }
+            }, 1000);
+        }
+
+        const correctAnswers = {
+            1: 12,
+            2: 'circle',
+            3: 6,
+            4: 'eating',
+            5: 8,
+            6: 30,
+            7: 'no-squares-triangles'
+        };
+
+        function checkAnswer(questionNum, answer) {
+            if (answer === correctAnswers[questionNum]) {
+                score++;
+            }
+            
+            if (questionNum < 7) {
+                document.getElementById(`q${questionNum}`).classList.remove('active');
+                document.getElementById(`q${questionNum + 1}`).classList.add('active');
+                currentQuestion++;
+                updateProgress();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const timeTaken = Math.floor((Date.now() - startTime) / 1000);
+            const minutes = Math.floor(timeTaken / 60);
+            const seconds = timeTaken % 60;
+
+            document.getElementById('questions').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('score').textContent = score;
+            document.getElementById('timeTaken').textContent = 
+                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            
+            const baseIQ = 85;
+            const pointsPerQuestion = 10;
+            const timeBonus = Math.max(0, (300 - timeTaken) / 30); 
+            const estimatedIQ = Math.round(baseIQ + (score * pointsPerQuestion) + timeBonus);
+            document.getElementById('iqRange').textContent = `${estimatedIQ - 5} - ${estimatedIQ + 5}`;
+            
+            clearInterval(timerInterval);
+        }
+    </script>
+</body>
+</html>
