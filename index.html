@@ -303,8 +303,8 @@
 
         function animate() {
             requestAnimationFrame(animate);
-            torusKnot.rotation.x += 0.01;
-            torusKnot.rotation.y += 0.01;
+            torusKnot.rotation.x += 0.005;
+            torusKnot.rotation.y += 0.005;
             renderer.render(scene, camera);
         }
         animate();
